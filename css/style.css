@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
-
+:root {
+    --shadow: 1px 2px 0px rgba(0, 0, 0, .8);
+}
 * {
     padding: 0;
     margin: 0;
@@ -9,6 +11,10 @@
 
 h1, h2, h3, h4 {
     font-weight: normal;
+}
+
+h1 {
+    font-family: 'Poppins',sans-serif;
 }
 
 h1 {
@@ -31,6 +37,7 @@ body {
     color: white;
     font-family: 'Raleway', sans-serif;
     overflow: hidden;
+    text-shadow: var(--shadow);
 }
 
 main {
@@ -43,6 +50,21 @@ main {
     position: relative;
 }
 
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+ul li {
+    padding: .8rem .3rem;
+    border-bottom: 1px solid #EEE;
+}
+
+ul li:last-child {
+    border: none;
+}
+
 .bg {
     position: absolute;
     top: 0;
@@ -50,7 +72,7 @@ main {
     background-color: black;
     height: 100vh;
     width: 100%;
-    opacity: .45;
+    opacity: .35;
 }
 
 .content {
@@ -79,6 +101,7 @@ input, button {
     font-family: 'Raleway', sans-serif;
     padding: 0.3rem;
     text-align: center;
+    text-shadow: var(--shadow);
 }
 
 button {
@@ -193,33 +216,58 @@ small {
     padding: 1rem;
 }
 
-#todo-list {
+#todo-modal {
     position: absolute;
     background-color: white;
     z-index: 20;
-    top: 50px; 
-    right: 20px;
+    top: 55px; 
+    right: 25px;
     color: black;
     padding: 1rem;
     border-radius: .5rem;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, .3);
     width: 100%;
     max-width: 400px;
+    text-shadow: none;
 }
 
-#todo-list h2 {
+#todo-modal h2 {
     text-transform: uppercase;
     font-size: .9rem;
     letter-spacing: 4px;
     text-align: center;
+    color: #AAA;
 }
 
-#todo-list input {
-    background-color: #EEE;
+#todo-modal input {
+    background-color: none;
+    border: 1px solid #AAA;
     width: 100%;
     color: #333;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: normal;
     text-align: left;
     font-size: 1rem;
+    text-shadow: none;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.todo-item {
+    cursor: pointer;
+}
+
+.todo-item:hover {
+    background-color: #EEE;
 }

@@ -13,7 +13,15 @@
     const bg = ["emerald-lake.jpg", 
                 "prags-lake.jpg", 
                 "slovakia-cabin.jpg", 
-                "ijen-crater.jpg"];
+                "ijen-crater.jpg", 
+                "guernsey.jpg", 
+                "valley-flower.jpg",
+                "tree-canopy.jpg", 
+                "cherry-blossoms.jpg", 
+                "pragser.jpg",
+                "ghode-pani.jpg",
+                "plansee.jpg"
+            ];
 
     const random = Math.floor(Math.random() * bg.length);
     main.style.backgroundImage = `url(images/${bg[random]})`;
@@ -70,6 +78,18 @@
 
     const focusDiv = document.getElementById('focusdisplay');
     focusDiv.addEventListener('click', createTodos);
+    const todoBtn = document.getElementById('todo');
+    todoBtn.addEventListener('click', createTodos);
+
+
+    function toggleTodoItemHandler()
+    {
+        const todoItem = getTodoById(this.dataset.id);
+        todoItem.done = !todoItem.done;
+        updateTodo(todoItem);
+        processTodoList();
+        updateFocusDiv();
+    }
 
     function gotoPage2()
     {
@@ -83,16 +103,16 @@
         clock.innerHTML = getTimeNow();
         greetLoggedinUser();
         const quoteDiv = document.getElementById('quotes');
-        
 
-        todos = getTodos();
+        processTodoList();
 
         setTimeout(function(){
             page2.classList.add('hide');
             page3.classList.toggle('hide');
 
             quoteDiv.innerHTML = `"${quotes.content}"<br><i class="author">${quotes.author}</i>`;
-            focusDiv.innerHTML = !todos ? `Add your focus.` : todos[0];
+            
+            updateFocusDiv();
 
             const clock = document.getElementById('clock');
             setInterval(function(){
@@ -137,7 +157,7 @@
     function processPage2()
     {
         page2.classList.add('hide');
-        todos.push(focus.value);
+        todos.push({id: todos.length, item: focus.value, done: false});
         localStorage.setItem('todos', JSON.stringify(todos));
         gotoPage3();
     }
@@ -180,7 +200,85 @@
 
     function createTodos()
     {
-        console.log("Create todos");
+        const todoListModal = document.getElementById('todo-modal');
+        todoListModal.classList.toggle('hide');
+    }
+
+    function processTodoList()
+    {
+        todos = getTodos();
+        const todoUl = document.getElementById('todo-ul');
+        todoUl.innerHTML = "";
+
+        if(todos) {
+            for(let _todo of todos)
+            {
+                const li = document.createElement('li');
+                li.setAttribute('data-id', _todo.id);
+                li.addEventListener('click', toggleTodoItemHandler);
+                if(_todo.done) {
+                    li.setAttribute('class', 'todo-item');
+                    li.classList.add('done');
+                } else {
+                    li.setAttribute('class', 'todo-item');
+                }
+                li.innerHTML = _todo.item;
+                todoUl.append(li);
+            }
+        }
+
+        
+    }
+
+    function getTodoById(id)
+    {
+        const todosObj = getLocalStorageTodosObject();
+        for(let _todo of todosObj) {
+            if(_todo.id === parseInt(id)) {
+                return _todo;
+            }
+        }
+    }
+
+    function getLocalStorageTodosObject()
+    {
+        if(localStorage.getItem('todos'))
+        {
+            return JSON.parse(localStorage.getItem('todos'));
+        }
+    }
+
+    function saveTodoLocalStorage(todoObj)
+    {
+        localStorage.setItem('todos', JSON.stringify(todoObj)); 
+    }
+
+    function updateTodo(todoItem)
+    {
+        const _todos = getLocalStorageTodosObject();
+        for(let i = 0; i < _todos.length; i++) 
+        {
+            if(_todos[i].id === todoItem.id) {
+                _todos.splice(i, 1);
+                _todos.push(todoItem);
+                break;
+            }
+        }
+        saveTodoLocalStorage(_todos);
+    }
+
+    function updateFocusDiv()
+    {
+        focusDiv.innerHTML = `Add your focus`;
+
+        if(todos) {
+            for(let _todo of todos) {
+                if(_todo.done === false) {
+                    focusDiv.innerHTML = _todo.item;
+                    break;
+                }
+            }
+        }
     }
 
     async function getQuotes()

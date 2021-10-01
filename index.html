@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/style.css">
-    <title>Momentum</title>
+    <title>Momentum App by Jeff de Lara</title>
 </head>
 <body>
     <main>
@@ -36,7 +36,8 @@
                 </div>
                 <div id="today">
                     <h5>Today</h5>
-                    <div id="focusdisplay" class="no-outline-btn"></div>
+                    <div id="focusdisplay"></div>
+                    <button class="edit-focus"><i class='bx bxs-message-alt-edit' ></i></button>
                 </div>
                 <div id="quotes">Loading inspirational quotes...</div>
             </div>
@@ -44,7 +45,7 @@
 
         <div id="todo-modal" class="hide">
             <h2>Todo list</h2>
-            <input type="text" placeholder="Create a new todo item...">
+            <input type="text" id="todo-input" placeholder="Create a new todo item...">
             <div id="todo-list">
                 <ul id="todo-ul">
                     <li class="todo-item done"><a href="#">Coding the momentum app</a></li>
@@ -57,5 +58,6 @@
         <div class="bg"></div>
     </main>
     <script src="js/main.js"></script>
+    <script src="js/events.js"></script>
 </body>
 </html>

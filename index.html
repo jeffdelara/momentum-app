@@ -4,12 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/style.css">
     <title>Momentum</title>
 </head>
 <body>
-    
+    <main>
+        <div class="content">
+            <div id="page-1" class="hide animate">
+                <h1 id="greeting">Hello. What's your name?</h1>
+                <div>
+                    <input id="name" type="text" autofocus autocomplete="off">
+                    <button id="namebtn"><i class='bx bx-right-arrow-alt'></i></button>
+                </div>
+            </div>
 
+            <div id="page-2" class="hide animate">
+                <div class="p2-msg">
+                    <h1>What's your focus for today?</h1>
+                    <input id="focus" type="text" autofocus autocomplete="off">
+                    <button id="focus-btn"><i class='bx bx-right-arrow-alt'></i></button>
+                </div>
+            </div>
+
+
+            <div id="page-3" class="hide animate">
+                <div id="todo"><button class="no-outline-btn"><i class='bx bx-list-plus'></i></button></div>
+                <div id="momentum">
+                    <h1 id="clock"></h1>
+                    <h4 id="loggedingreet">Good morning, Jason</h4>
+                </div>
+                <div id="today">
+                    <h5>Today</h5>
+                    <div id="focusdisplay" class="no-outline-btn"></div>
+                </div>
+                <div id="quotes">Loading inspirational quotes...</div>
+            </div>
+        </div>
+
+        <div id="todo-list">
+            <h2>Todo list</h2>
+            <input type="text">
+        </div>
+        
+        <div class="bg"></div>
+    </main>
     <script src="js/main.js"></script>
 </body>
 </html>

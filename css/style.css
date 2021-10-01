@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+}
+
+h1 {
+    margin: 0;
+}
+
+h4 {
+    font-size: 1.8rem;
+    margin: .4rem;
+}
+
+h5 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin: .3rem;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    overflow: hidden;
+}
+
+main {
+    height: 100vh;
+    /* background-image: url('../images/emerald-lake.jpg'); */
+    /* background-image: url('../images/prags-lake.jpg'); */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    opacity: .45;
+}
+
+.content {
+    position: absolute;
+    z-index: 9;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+}
+
+
+input, button {
+    margin: .8rem 0;
+    background: none;
+    border: none;
+    color: white;
+    border-bottom: 3px solid white;
+    outline: none;
+    font-size: 1.8rem;
+    font-weight: normal;
+    font-family: 'Raleway', sans-serif;
+    padding: 0.3rem;
+    text-align: center;
+}
+
+button {
+    border: 3px solid white;
+    padding: .4rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.animate {
+    transition: .3s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.hide {
+    visibility: hidden;
+    transform: translateY(-50px);
+    transition: .3s;
+    opacity: 0;
+}
+
+#page-2, #page-3 {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto 100px 150px;    
+    height: 100vh;
+    width: 100%;
+}
+
+#page-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#page-2 h1, #page-2 h2 {
+    display: block;
+}
+
+#momentum {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#clock {
+    font-size: 9rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+#today {
+    font-size: 1.6rem;
+}
+
+#todo {
+    font-size: 3rem;
+    text-align: right;
+    margin: 0 .7rem;
+}
+
+.no-outline-btn {
+    border: 0;
+    margin: 0;
+    border-radius: 10px;
+}
+
+.no-outline-btn:hover {
+    transition: .3s;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+small {
+    font-size: 4rem;
+}
+
+#bgmenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#quotes {
+    line-height: 1.7rem;
+    font-size: 1rem;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.author {
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: .8rem;
+}
+
+#focusdisplay {
+    cursor: pointer;
+    display: inline-block;
+    padding: 1rem;
+}
+
+#todo-list {
+    position: absolute;
+    background-color: white;
+    z-index: 20;
+    top: 50px; 
+    right: 20px;
+    color: black;
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, .3);
+    width: 100%;
+    max-width: 400px;
+}
+
+#todo-list h2 {
+    text-transform: uppercase;
+    font-size: .9rem;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+#todo-list input {
+    background-color: #EEE;
+    width: 100%;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+    text-align: left;
+    font-size: 1rem;
+}

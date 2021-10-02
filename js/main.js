@@ -80,6 +80,11 @@ function gotoPage3()
             clock.innerHTML = getTimeNow();
         }, 1000);
     }, 1000);
+
+    setInterval(function(){
+        getQuotes();
+        quoteDiv.innerHTML = `"${quotes.content}"<br><i class="author">${quotes.author}</i>`;
+    }, 1000 * 60 * 5);
 }
 
 function greet(name)

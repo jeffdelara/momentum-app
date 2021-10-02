@@ -43,7 +43,7 @@ todoBtn.addEventListener('click', createTodos);
 
 const todoInput = document.getElementById('todo-input');
 todoInput.addEventListener('keydown', function(e){
-    if(e.key === 'Enter') {
+    if(e.key === 'Enter' && todoInput.value) {
         insertTodo(todoInput.value);
         processTodoList();
         todoInput.value = '';

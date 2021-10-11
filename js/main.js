@@ -227,8 +227,6 @@ function processTodoList()
             todoUl.append(li);
         }
     }
-
-    
 }
 
 function getTodoById(id)
@@ -297,7 +295,23 @@ function updateFocusDiv()
 
 async function getQuotes()
 {
-    const data = await fetch('https://api.quotable.io/random');
+    const favoriteAuthors = [
+        'socrates', 
+        'epictetus',
+        'marcus-aurelius',
+        'arthur-schopenhauer',
+        'plato', 
+        'aristotle',
+        'buddha', 
+        'benjamin-franklin',
+        'confucius', 
+        'laozi', 
+        'diogenes', 
+        'cicero'
+    ];
+
+    const randomIndex = Math.floor(Math.random() * favoriteAuthors.length);
+    const data = await fetch(`https://api.quotable.io/random?author=${favoriteAuthors[randomIndex]}`);
     const quote = await data.json();
 
     if(quote.statusCode == '404') {
@@ -308,3 +322,8 @@ async function getQuotes()
     }
 }
 
+function clearTodoHandler()
+{
+    localStorage.setItem('todos', '');
+    processTodoList();
+}

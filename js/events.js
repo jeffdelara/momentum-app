@@ -54,3 +54,6 @@ setInterval(function(){
     const random = Math.floor(Math.random() * bg.length);
     main.style.backgroundImage = `url(images/${bg[random]})`;
 }, 1000 * 60 * 5);
+
+const clearTodoBtn = document.querySelector('.mini-btn');
+clearTodoBtn.addEventListener('click', clearTodoHandler);

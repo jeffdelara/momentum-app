@@ -313,7 +313,24 @@ a:hover {
     display: inline-block;
 }
 
+.todo-btns {
+    text-align: right;
+}
 
+.mini-btn {
+    margin: 0;
+    font-size: .9rem;
+    color: rgb(49, 49, 255);
+    text-shadow: none;
+    background-color: #e8e8ff;
+    border-radius: 2rem;
+    padding: .5rem 1rem;
+    transition: .3s;
+}
+
+.mini-btn:hover {
+    background-color: #d2d2ff;
+}
 
 @media (max-width: 550px) {
     #clock {

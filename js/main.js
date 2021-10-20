@@ -325,15 +325,13 @@ async function getQuotes()
 function clearTodoHandler()
 {
     const todos = getLocalStorageTodosObject();
+    let newTodos = null;
     if(todos) 
     {
-        todos.forEach((todo, index) => {
-            if(todo.done) {
-                todos.splice(index, 1);
-            }
+        newTodos = todos.filter(todo => {
+            return todo.done === false;
         });
     }
-    // localStorage.setItem('todos', '');
-    saveTodoLocalStorage(todos);
+    saveTodoLocalStorage(newTodos);
     processTodoList();
 }
